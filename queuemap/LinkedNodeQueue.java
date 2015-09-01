@@ -9,6 +9,7 @@ import java.util.Queue;
  * 8/30/15 (c) Isabell Cowan
  * isabellcowan@gmail.com
  */
+@SuppressWarnings("NullableProblems")
 class LinkedNodeQueue<K, V>
         implements Queue<Node<K, V>> {
     private final Node<K, V> sentinel = new Node<>(null, null);

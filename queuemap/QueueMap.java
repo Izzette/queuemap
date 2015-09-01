@@ -56,6 +56,7 @@ public class QueueMap<K, V> {
     }
 
     private Node<K, V> remove(Object key) {
+        @SuppressWarnings("SuspiciousMethodCalls")
         Node<K, V> node = map.remove(key);
         if (node != null) node.remove();
         return node;
@@ -79,6 +80,7 @@ public class QueueMap<K, V> {
         return collection;
     }
 
+    @SuppressWarnings("NullableProblems")
     private class AsMap
             implements Map<K, V> {
         private final Map<K, Node<K, V>> map;
@@ -152,6 +154,7 @@ public class QueueMap<K, V> {
             return QueueMap.this.iterator();
         }
 
+        @SuppressWarnings({"NullableProblems", "unused"})
         private class EntrySet extends AbstractSet<Entry<K, V>> {
             @Override
             public Iterator<Entry<K, V>> iterator() {
@@ -165,6 +168,7 @@ public class QueueMap<K, V> {
         }
     }
 
+    @SuppressWarnings("NullableProblems")
     private class AsQueue
             implements Queue<Entry<K, V>> {
         private final Queue<Node<K, V>> queue;
@@ -249,6 +253,7 @@ public class QueueMap<K, V> {
 
         @Override
         public <T> T[] toArray(T[] array) {
+            //noinspection SuspiciousToArrayCall
             return queue.toArray(array);
         }
 

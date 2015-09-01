@@ -34,7 +34,7 @@ final class Node<K, V> extends AbstractMap.SimpleEntry<K, V> implements Cloneabl
         unlink();
     }
 
-    void addLast(Node<K, V> node)  {
+    void addLast(Node<K, V> node) {
         node.addedLast = addedLast;
         addedFirst.addedFirst = node;
 

@@ -10,7 +10,7 @@ import java.util.Queue;
  * isabellcowan@gmail.com
  */
 class LinkedNodeQueue<K, V>
-    implements Queue<Node<K, V>> {
+        implements Queue<Node<K, V>> {
     private final Node<K, V> sentinel = new Node<>(null, null);
 
     @Override
@@ -95,10 +95,11 @@ class LinkedNodeQueue<K, V>
 
     @Override
     public boolean remove(Object object) {
-        for (Node<K, V> node : this) if (node == object) {
-            node.remove();
-            return true;
-        }
+        for (Node<K, V> node : this)
+            if (node == object) {
+                node.remove();
+                return true;
+            }
 
         return false;
     }
@@ -113,10 +114,11 @@ class LinkedNodeQueue<K, V>
     @Override
     public boolean retainAll(Collection<?> collection) {
         boolean ret = false;
-        for (Node<K, V> node : this) if (! collection.contains(node)) {
-            remove(node.getKey());
-            ret = true;
-        }
+        for (Node<K, V> node : this)
+            if (!collection.contains(node)) {
+                remove(node.getKey());
+                ret = true;
+            }
 
         return ret;
     }
@@ -169,7 +171,7 @@ class LinkedNodeQueue<K, V>
 
         @Override
         public final Node<K, V> next() {
-            if (! hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) throw new NoSuchElementException();
 
             lastReturned = next;
 

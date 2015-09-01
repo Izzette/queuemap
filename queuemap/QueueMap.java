@@ -228,10 +228,11 @@ public class QueueMap<K, V> {
         @Override
         public boolean retainAll(Collection<?> collection) {
             boolean ret = false;
-            for (Entry<K, V> entry : queue) if (! collection.contains(entry)) {
-                QueueMap.this.remove(entry.getKey());
-                ret = true;
-            }
+            for (Entry<K, V> entry : queue)
+                if (!collection.contains(entry)) {
+                    QueueMap.this.remove(entry.getKey());
+                    ret = true;
+                }
 
             return ret;
         }

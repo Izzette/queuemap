@@ -153,7 +153,7 @@ class LinkedNodeQueue<K, V>
         private Node<K, V> next;
         private Node<K, V> lastReturned;
 
-        protected LastToFirstNodeItr() {
+        LastToFirstNodeItr() {
             this.next = LinkedNodeQueue.this.sentinel;
             advance();
         }

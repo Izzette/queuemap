@@ -126,7 +126,12 @@ public class QueueMap<K, V> {
 
         @Override
         public V put(K key, V value) {
-            return QueueMap.this.putAdd(key, value).getValue();
+            Node<K, V> node = QueueMap.this.putAdd(key, value);
+
+            if (node == null)
+                return null;
+
+            return node.getValue();
         }
 
         @Override

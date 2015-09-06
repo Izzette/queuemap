@@ -14,6 +14,11 @@ class LinkedNodeQueue<K, V>
         implements Queue<Node<K, V>> {
     private final Node<K, V> sentinel = new Node<>(null, null);
 
+    LinkedNodeQueue() {
+        sentinel.addFirst(sentinel);
+        sentinel.addLast(sentinel);
+    }
+
     @Override
     public boolean add(Node<K, V> object) {
         sentinel.addFirst(object);
